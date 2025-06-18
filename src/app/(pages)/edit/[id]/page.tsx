@@ -63,7 +63,7 @@ export default function EditTaskPage() {
   if (loading) return <p className="p-6">Loading...</p>;
 
   return (
-    <div className="m-4">
+    <div className="p-4">
       <Breadcrumbs />
 
       <div className="max-w-xl mx-10 sm:mx-auto py-10">

@@ -25,7 +25,7 @@ export default function AddTaskPage() {
   };
 
   return (
-    <div className="m-4">
+    <div className="p-4">
       <Breadcrumbs />
       <div className="max-w-xl mx-10 sm:mx-auto py-10">
         <h1 className="text-2xl font-bold mb-4 dark:text-white">Add Task</h1>
