@@ -1,0 +1,31 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+import TaskForm from "../../components/TaskForm";
+import { Task } from "../../types/task";
+
+export default function AddTaskPage() {
+  const router = useRouter();
+
+  // Handle form submission
+  const handleAdd = async (task: Omit<Task, "id">) => {
+    const res = await fetch("http://localhost:3001/tasks", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(task),
+    });
+
+    if (res.ok) {
+      router.push("/");
+    } else {
+      console.error("Failed to create task");
+    }
+  };
+
+  return (
+    <div className="max-w-xl mx-10 sm:mx-auto py-10">
+      <h1 className="text-2xl font-bold mb-4 dark:text-white">Add Task</h1>
+      <TaskForm submitLabel="Add Task" onSubmit={handleAdd} />
+    </div>
+  );
+}

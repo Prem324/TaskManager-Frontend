@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "./styles/globals.css";
+import ToastProvider from "./components/ToastProvider";
+import DarkModeToggle from "./components/DarkModeToggle";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +29,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <header className="flex justify-between p-4 dark:bg-black">
+          <h1 className="text-4xl text-violet-600 font-serif font-bold">
+            Task Manager
+          </h1>
+          <DarkModeToggle />
+        </header>
+        <hr />
+        <main className="dark:bg-black h-screen">
+          <ToastProvider>{children}</ToastProvider>
+        </main>
       </body>
     </html>
   );
