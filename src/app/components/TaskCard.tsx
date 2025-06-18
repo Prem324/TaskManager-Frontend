@@ -22,7 +22,7 @@ export default function TaskCard({ task, onDelete }: TaskCardProps) {
   const router = useRouter();
 
   const handleEdit = () => {
-    router.push(`/pages/edit/${task.id}`);
+    router.push(`/edit/${task.id}`);
   };
 
   return (

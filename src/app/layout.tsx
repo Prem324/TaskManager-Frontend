@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./styles/globals.css";
 import ToastProvider from "./components/ToastProvider";
 import DarkModeToggle from "./components/DarkModeToggle";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +32,7 @@ export default function RootLayout({
       >
         <header className="flex justify-between p-4 dark:bg-black">
           <h1 className="text-4xl text-violet-600 font-serif font-bold">
-            Task Manager
+            <Link href="/home">Task Manager</Link>
           </h1>
           <DarkModeToggle />
         </header>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Task, TaskStatus } from "../types/task"; // Adjust the path if needed
+import { Task, TaskStatus } from "../types/task";
 
 interface TaskFormProps {
   initialData?: Task;
