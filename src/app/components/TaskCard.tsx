@@ -53,7 +53,7 @@ export default function TaskCard({ task, onDelete }: TaskCardProps) {
             : "N/A"}
         </p> */}
       </div>
-      <div className="flex gap-2 items-center">
+      <div className="flex flex-col gap-6 items-center justify-between">
         <button
           onClick={handleEdit}
           className="text-blue-500 hover:text-blue-700"
