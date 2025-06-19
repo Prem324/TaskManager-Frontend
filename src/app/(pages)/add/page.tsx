@@ -4,11 +4,13 @@ import { useRouter } from "next/navigation";
 import TaskForm from "../../components/TaskForm";
 import { Task } from "../../types/task";
 import Breadcrumbs from "../../components/Breadcrumbs";
+import { useToast } from "../../components/ToastProvider";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
 
 export default function AddTaskPage() {
   const router = useRouter();
+  const toast = useToast();
 
   const handleAdd = async (task: Omit<Task, "id">) => {
     const res = await fetch(`${API_URL}/tasks`, {
@@ -19,6 +21,7 @@ export default function AddTaskPage() {
 
     if (res.ok) {
       router.push("/home");
+      toast("Task added successfully");
     } else {
       console.error("Failed to create task");
     }

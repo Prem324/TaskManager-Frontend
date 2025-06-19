@@ -31,7 +31,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <header className="flex justify-between p-4 dark:bg-black">
-          <h1 className="text-4xl text-violet-600 font-serif font-bold">
+          <h1 className="text-2xl sm:text-4xl text-violet-600 font-serif font-bold">
             <Link href="/home">Task Manager</Link>
           </h1>
           <DarkModeToggle />

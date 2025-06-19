@@ -6,6 +6,7 @@ import TaskForm from "../../../components/TaskForm";
 import type { Task } from "../../../types/task";
 import Breadcrumbs from "../../../components/Breadcrumbs";
 import { format } from "date-fns";
+import { useToast } from "../../../components/ToastProvider";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
 
@@ -13,6 +14,7 @@ export default function EditTaskPage() {
   const params = useParams();
   const router = useRouter();
   const id = params?.id as string;
+  const toast = useToast();
 
   const [task, setTask] = useState<Task | null>(null);
   const [error, setError] = useState("");
@@ -54,6 +56,7 @@ export default function EditTaskPage() {
     });
     if (res.ok) {
       router.push("/home");
+      toast("Task updated successfully");
     } else {
       setError("Failed to update task");
     }
@@ -65,7 +68,6 @@ export default function EditTaskPage() {
   return (
     <div className="p-4">
       <Breadcrumbs />
-
       <div className="max-w-xl mx-10 sm:mx-auto py-10">
         <h1 className="text-2xl font-bold mb-4 dark:text-white">Edit Task</h1>
         {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
